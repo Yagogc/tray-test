@@ -2,10 +2,12 @@ import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import routes from './routes'
 import { User, Privacy, Done } from './pages'
+import Nav from './components/Nav'
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Switch>
         <Route path={routes.user}>
           <User />
