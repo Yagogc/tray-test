@@ -5,11 +5,9 @@ import styles from './Nav.module.scss'
 
 const NavLink: React.FC<{ to: string }> = ({ children, to }) => {
   let match = useRouteMatch(to)
+  console.log('match', match)
   return (
-    <Link
-      to={to}
-      className={(styles.nav__item, match ? styles.nav_item_active : '')}
-    >
+    <Link to={to} className={styles.nav_item}>
       {children}
     </Link>
   )
