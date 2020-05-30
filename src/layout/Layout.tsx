@@ -1,12 +1,21 @@
 import React from 'react'
 import Nav from '../components/Nav'
-import './Layout.module.scss'
+import {
+  LayoutContainer,
+  LayoutContent,
+  LayoutContentBackground,
+  Logo,
+} from './Layout.styles'
 
 const User: React.FC = ({ children }) => {
   return (
     <>
+      <Logo>tray.io</Logo>
       <Nav />
-      <main>{children}</main>
+      <LayoutContainer>
+        <LayoutContent>{children}</LayoutContent>
+        <LayoutContentBackground />
+      </LayoutContainer>
     </>
   )
 }
