@@ -1,11 +1,11 @@
 import { string, object, InferType } from 'yup'
 
-const userSchema = object().shape({
+const userSchema = object({
   name: string()
     .required('Name is required')
     .min(2, 'Name must have 2 characters at least')
     .max(35, 'Name must have less than 35 characters'),
-  role: string().max(35, 'Role must have less than 35 characters').nullable(),
+  role: string().max(35, 'Role must have less than 35 characters'),
   email: string()
     .email('Must be a valid email')
     .required('Email is required')
@@ -17,10 +17,8 @@ const userSchema = object().shape({
       new RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])'),
       'The password must have at least 1 number, 1 uppercase and 1 lowercase character'
     ),
-})
+}).required()
 
-export type userType = InferType<typeof userSchema>
-
-// interface userInterface extends userType {}
+export type UserType = InferType<typeof userSchema>
 
 export default userSchema

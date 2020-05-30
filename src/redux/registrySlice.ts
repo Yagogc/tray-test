@@ -1,15 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-// import { userType, privacyType } from '../validation'
-import { userFormInterface, privacyFormInterface } from '../@types/form'
+import { UserType, PrivacyType } from '../validation'
 
-// interface initialStateInterface extends userType, privacyType {}
-interface initialStateInterface
-  extends userFormInterface,
-    privacyFormInterface {}
+interface initialStateInterface extends UserType, PrivacyType {}
 
 let initialState: initialStateInterface = {
   name: '',
-  role: null,
+  role: '',
   email: '',
   password: '',
   update: false,
@@ -20,7 +16,10 @@ const registrySlice = createSlice({
   name: 'registry',
   initialState,
   reducers: {
-    setRegistryData(state, { payload }) {
+    setRegistryData(
+      state,
+      { payload }: PayloadAction<Partial<initialStateInterface>>
+    ) {
       return {
         ...state,
         ...payload,
@@ -28,8 +27,6 @@ const registrySlice = createSlice({
     },
   },
 })
-
-// setRegistryData(state, { payload }: { payload: PayloadAction }) {
 
 export const { setRegistryData } = registrySlice.actions
 

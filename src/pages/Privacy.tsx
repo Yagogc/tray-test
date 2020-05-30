@@ -2,18 +2,21 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { privacySchema } from '../validation/index'
+import { privacySchema, PrivacyType } from '../validation/index'
 import { InputCheckbox } from '../components/Inputs'
 import routes from '../routes'
-import type { RootState } from '../redux/store'
+import { RootState } from '../redux/store'
 import { setRegistryData } from '../redux/registrySlice'
 
 const Privacy = () => {
   const dispatch = useDispatch()
-  const state = useSelector((state: RootState) => state.registrySlice)
-  console.log('Privacy -> state', state)
+  const { update, marketing } = useSelector(
+    (state: RootState) => state.registrySlice
+  )
+  // console.log('Privacy -> state', state)
   const history = useHistory()
-  const { register, handleSubmit } = useForm<FormData>({
+  const { register, handleSubmit } = useForm<PrivacyType>({
+    defaultValues: { update, marketing },
     validationSchema: privacySchema,
   })
 

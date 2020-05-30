@@ -1,10 +1,10 @@
 import { boolean, object, InferType } from 'yup'
 
-const privacySchema = object().shape({
+const privacySchema = object({
   update: boolean(),
   marketing: boolean(),
-})
+}).required()
 
-export type privacyType = InferType<typeof privacySchema>
+export type PrivacyType = InferType<typeof privacySchema>
 
 export default privacySchema

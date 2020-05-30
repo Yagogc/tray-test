@@ -2,25 +2,21 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { userSchema } from '../validation'
+import { userSchema, UserType } from '../validation'
 import { InputText } from '../components/Inputs'
 import routes from '../routes'
-import type { RootState } from '../redux/store'
+import { RootState } from '../redux/store'
 import { setRegistryData } from '../redux/registrySlice'
-
-type FormData = {
-  name: string
-  role: string
-  email: string
-  password: string
-}
 
 const User = () => {
   const dispatch = useDispatch()
-  const state = useSelector((state: RootState) => state.registrySlice)
-  console.log('User -> state', state)
+  const { name, role, email, password } = useSelector(
+    (state: RootState) => state.registrySlice
+  )
+  // console.log('User -> state', state)
   const history = useHistory()
-  const { register, handleSubmit, errors } = useForm<FormData>({
+  const { register, handleSubmit, errors } = useForm<UserType>({
+    defaultValues: { name, role, email, password },
     validationSchema: userSchema,
   })
   const onSubmit = handleSubmit((data) => {
