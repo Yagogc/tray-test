@@ -1,8 +1,8 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
-import userSchema from '../validation/index'
-import { Input } from '../components/Inputs'
+import { userSchema } from '../validation/index'
+import { InputText } from '../components/Inputs'
 import routes from '../routes'
 
 type FormData = {
@@ -26,10 +26,25 @@ const User = () => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <Input type="text" name="name" register={register} errors={errors} />
-        <Input type="role" name="role" register={register} errors={errors} />
-        <Input type="email" name="email" register={register} errors={errors} />
-        <Input
+        <InputText
+          type="text"
+          name="name"
+          register={register}
+          errors={errors}
+        />
+        <InputText
+          type="role"
+          name="role"
+          register={register}
+          errors={errors}
+        />
+        <InputText
+          type="email"
+          name="email"
+          register={register}
+          errors={errors}
+        />
+        <InputText
           type="password"
           name="password"
           register={register}

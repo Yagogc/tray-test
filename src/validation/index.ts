@@ -1,3 +1,4 @@
 import userSchema from './userSchema'
+import privacySchema from './privacySchema'
 
-export default userSchema
+export { userSchema, privacySchema }

@@ -1,3 +1,3 @@
-import { Input } from './Inputs'
+import { InputText, InputCheckbox } from './Inputs'
 
-export { Input }
+export { InputText, InputCheckbox }
