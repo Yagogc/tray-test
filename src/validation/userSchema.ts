@@ -1,11 +1,11 @@
-import { string, object } from 'yup'
+import { string, object, InferType } from 'yup'
 
 const userSchema = object().shape({
   name: string()
     .required('Name is required')
     .min(2, 'Name must have 2 characters at least')
     .max(35, 'Name must have less than 35 characters'),
-  role: string().max(35, 'Role must have less than 35 characters'),
+  role: string().max(35, 'Role must have less than 35 characters').nullable(),
   email: string()
     .email('Must be a valid email')
     .required('Email is required')
@@ -18,5 +18,9 @@ const userSchema = object().shape({
       'The password must have at least 1 number, 1 uppercase and 1 lowercase character'
     ),
 })
+
+export type userType = InferType<typeof userSchema>
+
+// interface userInterface extends userType {}
 
 export default userSchema
