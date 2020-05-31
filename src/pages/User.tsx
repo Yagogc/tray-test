@@ -8,23 +8,19 @@ import { Button, ButtonGroup } from '../components/Button'
 import routes from '../routes'
 import { RootState } from '../redux/store'
 import { setRegistryData } from '../redux/registrySlice'
-import { endpoint } from '../constants'
 
 const User = () => {
   const dispatch = useDispatch()
   const registryState = useSelector((state: RootState) => state.registrySlice)
   const history = useHistory()
-  const { register, handleSubmit, errors, formState } = useForm<UserType>({
+  const { register, handleSubmit, errors } = useForm<UserType>({
     defaultValues: { ...registryState },
     validationSchema: userSchema,
   })
-  console.log('User -> formState.isValid', formState.isValid)
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
     dispatch(setRegistryData(data))
     history.push(routes.privacy)
   })
-  console.log('endpoint', endpoint)
   return (
     <>
       <form onSubmit={onSubmit}>

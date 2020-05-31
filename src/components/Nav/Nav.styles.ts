@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components/macro'
-import { Link } from 'react-router-dom'
 
 const NavContainer = styled.nav`
   ${() => css`
@@ -12,17 +11,18 @@ const NavContainer = styled.nav`
     margin: 10px 0;
   `}
 `
-const NavItem = styled(Link)`
+const NavItem = styled.span`
   ${({ isactive }: { isactive: string }) => css`
     flex: 1 1 auto;
     text-decoration: none;
     text-align: center;
     padding: 15px 25px;
     border-radius: 5px;
-    font-weight: ${isactive === 'true' ? 'normal' : 'bold'};
-    &:hover {
-      text-decoration: underline;
-      background-color: lightgray;
+    font-weight: ${isactive === 'true' ? 'bold' : 'regular'};
+    background-color: ${isactive === 'true' ? 'lightgray' : 'transparent'};
+    text-decoration: ${isactive === 'true' ? 'underline' : 'none'};
+    &:visited {
+      color: inherit;
     }
   `}
 `
