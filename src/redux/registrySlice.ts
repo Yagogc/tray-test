@@ -1,25 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { UserType, PrivacyType } from '../validation'
+import { UserType } from '../validation'
 
-interface initialStateInterface extends UserType, PrivacyType {}
-
-let initialState: initialStateInterface = {
+let initialState: UserType = {
   name: '',
   role: '',
   email: '',
   password: '',
-  update: false,
-  marketing: false,
 }
 
 const registrySlice = createSlice({
   name: 'registry',
   initialState,
   reducers: {
-    setRegistryData(
-      state,
-      { payload }: PayloadAction<Partial<initialStateInterface>>
-    ) {
+    setRegistryData(state, { payload }: PayloadAction<Partial<UserType>>) {
       return {
         ...state,
         ...payload,

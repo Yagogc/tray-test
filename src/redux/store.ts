@@ -1,8 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import registrySlice from './registrySlice'
+import privacySlice from './privacySlice'
 
-const rootReducer = combineReducers({ registrySlice })
+const rootReducer = combineReducers({ registrySlice, privacySlice })
 
 const store = configureStore({
   reducer: rootReducer,

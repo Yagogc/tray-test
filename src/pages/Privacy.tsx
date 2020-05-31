@@ -6,23 +6,21 @@ import { privacySchema, PrivacyType } from '../validation/index'
 import { InputCheckbox } from '../components/Inputs'
 import routes from '../routes'
 import { RootState } from '../redux/store'
-import { setRegistryData } from '../redux/registrySlice'
+import { setPrivacyData } from '../redux/privacySlice'
 
 const Privacy = () => {
   const dispatch = useDispatch()
-  const { update, marketing } = useSelector(
-    (state: RootState) => state.registrySlice
-  )
+  const privacyState = useSelector((state: RootState) => state.privacySlice)
   // console.log('Privacy -> state', state)
   const history = useHistory()
   const { register, handleSubmit } = useForm<PrivacyType>({
-    defaultValues: { update, marketing },
+    defaultValues: { ...privacyState },
     validationSchema: privacySchema,
   })
 
   const onSubmit = handleSubmit((data) => {
     console.log(data)
-    dispatch(setRegistryData(data))
+    dispatch(setPrivacyData(data))
     history.push(routes.done)
   })
 
