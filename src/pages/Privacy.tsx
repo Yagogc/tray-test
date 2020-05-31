@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -9,22 +9,27 @@ import { ErrorMessage } from '../components/InfoMsgs'
 import routes from '../routes'
 import { RootState } from '../redux/store'
 import { setPrivacyData } from '../redux/privacySlice'
+import { setSuccessData } from '../redux/successSlice'
 import axios from 'axios'
 import { useMutation } from 'react-query'
+import { endpoint } from '../constants'
 
 const postForm = async (formData: any) => {
-  const { data } = await axios.post(`https://api.mock/registration`, formData)
+  const { data } = await axios.post(endpoint, formData)
   return data
 }
 
 const Privacy = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const registryState = useSelector((state: RootState) => state.registrySlice)
-  const privacyState = useSelector((state: RootState) => state.privacySlice)
+  const {
+    registrySlice: registryState,
+    privacySlice: privacyState,
+  } = useSelector((state: RootState) => state)
   const [mutate, { error, status }] = useMutation(postForm, {
     onSuccess: () => {
-      console.log({ ...registryState, ...privacyState })
+      console.log('Form Submission', { ...registryState, ...privacyState })
+      dispatch(setSuccessData({ submitted: true }))
       history.push(routes.done)
     },
   })
@@ -32,6 +37,12 @@ const Privacy = () => {
     defaultValues: { ...privacyState },
     validationSchema: privacySchema,
   })
+
+  useLayoutEffect(() => {
+    if (!registryState.name) {
+      history.push(routes.user)
+    }
+  }, [history, registryState])
   const isLoading = status === 'loading'
   const onSubmit = handleSubmit((data) => {
     dispatch(setPrivacyData(data))
@@ -39,7 +50,7 @@ const Privacy = () => {
   })
 
   return (
-    <div>
+    <>
       <form onSubmit={onSubmit}>
         <InputCheckbox name="update" register={register}>
           Receive updates about Tray.io product by email
@@ -65,7 +76,7 @@ const Privacy = () => {
           </Button>
         </ButtonGroup>
       </form>
-    </div>
+    </>
   )
 }
 

@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom'
 import './index.scss'
 import App from './App'
 import { setupWorker, rest } from 'msw'
+import { endpoint } from './constants'
 
 const apiMock = setupWorker(
-  rest.post('https://api.mock/registration', (req: any, res: any, ctx: any) => {
+  rest.post(endpoint, (req: any, res: any, ctx: any) => {
     if (req?.body?.marketing) {
       return res(
         ctx.delay(2000),

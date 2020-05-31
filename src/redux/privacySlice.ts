@@ -16,9 +16,14 @@ const privacySlice = createSlice({
         ...payload,
       }
     },
+    resetPrivacyData() {
+      return {
+        ...initialState,
+      }
+    },
   },
 })
 
-export const { setPrivacyData } = privacySlice.actions
+export const { setPrivacyData, resetPrivacyData } = privacySlice.actions
 
 export default privacySlice.reducer

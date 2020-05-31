@@ -12,7 +12,7 @@ const successSlice = createSlice({
   name: 'sucess',
   initialState,
   reducers: {
-    setRegistryData(state, { payload }: PayloadAction<SuccessType>) {
+    setSuccessData(state, { payload }: PayloadAction<SuccessType>) {
       return {
         ...state,
         ...payload,
@@ -21,6 +21,6 @@ const successSlice = createSlice({
   },
 })
 
-export const { setRegistryData } = successSlice.actions
+export const { setSuccessData } = successSlice.actions
 
 export default successSlice.reducer

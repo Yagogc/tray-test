@@ -8,13 +8,13 @@ import { Button, ButtonGroup } from '../components/Button'
 import routes from '../routes'
 import { RootState } from '../redux/store'
 import { setRegistryData } from '../redux/registrySlice'
+import { endpoint } from '../constants'
 
 const User = () => {
   const dispatch = useDispatch()
   const registryState = useSelector((state: RootState) => state.registrySlice)
   const history = useHistory()
   const { register, handleSubmit, errors, formState } = useForm<UserType>({
-    mode: 'onChange',
     defaultValues: { ...registryState },
     validationSchema: userSchema,
   })
@@ -24,9 +24,9 @@ const User = () => {
     dispatch(setRegistryData(data))
     history.push(routes.privacy)
   })
-
+  console.log('endpoint', endpoint)
   return (
-    <div>
+    <>
       <form onSubmit={onSubmit}>
         <InputText
           type="text"
@@ -57,12 +57,10 @@ const User = () => {
           placeholder="•••••••••"
         />
         <ButtonGroup>
-          <Button type="submit" disabled={!formState.isValid}>
-            Submit
-          </Button>
+          <Button type="submit">Submit</Button>
         </ButtonGroup>
       </form>
-    </div>
+    </>
   )
 }
 

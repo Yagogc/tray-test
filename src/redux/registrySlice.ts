@@ -18,9 +18,14 @@ const registrySlice = createSlice({
         ...payload,
       }
     },
+    resetRegistryData() {
+      return {
+        ...initialState,
+      }
+    },
   },
 })
 
-export const { setRegistryData } = registrySlice.actions
+export const { setRegistryData, resetRegistryData } = registrySlice.actions
 
 export default registrySlice.reducer
