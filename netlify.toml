@@ -1,0 +1,11 @@
+
+[build]
+  command   = "yarn build"
+  publish   = "public"
+[[redirects]]
+  from = "*"
+  to = "/index.html"
+  status = 200
+  force = true
+  [redirects.headers]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
