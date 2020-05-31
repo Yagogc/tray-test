@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/macro'
 
 const ButtonGroup = styled.div`
   ${() => css`
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;

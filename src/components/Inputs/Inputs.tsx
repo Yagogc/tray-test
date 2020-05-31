@@ -5,7 +5,9 @@ import {
   InputTextLabel,
   InputTextInput,
   InputErrorMessage,
-} from './Input.styles'
+  InputCheckboxContainer,
+  InputCheckboxLabel,
+} from './Inputs.styles'
 interface InputProps {
   name: string
   register: ReturnType<typeof useForm>['register']
@@ -30,6 +32,7 @@ const InputText: React.FC<InputTextProps> = ({
       <InputTextInput
         type={type}
         name={name}
+        id={name}
         ref={register}
         tabIndex={0}
         placeholder={placeholder}
@@ -54,10 +57,16 @@ const InputCheckbox: React.FC<InputCheckboxProps> = ({
   register,
 }) => {
   return (
-    <div>
-      <input type="checkbox" name={name} ref={register} tabIndex={0} />
-      <label htmlFor={name}>{children}</label>
-    </div>
+    <InputCheckboxContainer>
+      <input
+        type="checkbox"
+        name={name}
+        ref={register}
+        id={name}
+        tabIndex={0}
+      />
+      <InputCheckboxLabel htmlFor={name}>{children}</InputCheckboxLabel>
+    </InputCheckboxContainer>
   )
 }
 

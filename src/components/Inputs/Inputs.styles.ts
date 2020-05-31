@@ -32,4 +32,23 @@ const InputErrorMessage = styled.p`
   `}
 `
 
-export { InputTextContainer, InputTextLabel, InputTextInput, InputErrorMessage }
+const InputCheckboxContainer = styled.div`
+  ${() => css`
+    margin-bottom: 10px;
+  `}
+`
+
+const InputCheckboxLabel = styled.label`
+  ${() => css`
+    margin-left: 10px;
+  `}
+`
+
+export {
+  InputTextContainer,
+  InputTextLabel,
+  InputTextInput,
+  InputErrorMessage,
+  InputCheckboxContainer,
+  InputCheckboxLabel,
+}
