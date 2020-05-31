@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import type { RootState } from '../redux/store'
-import { SuccessMessage } from '../components/Sucess'
+import { SuccessMessage } from '../components/InfoMsgs'
 
 const Done = () => {
   const state = useSelector((state: RootState) => state.registrySlice)
