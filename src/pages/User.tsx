@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { userSchema, UserType } from '../validation'
 import { InputText } from '../components/Inputs'
+import { Button, ButtonGroup } from '../components/Button'
 import routes from '../routes'
 import { RootState } from '../redux/store'
 import { setRegistryData } from '../redux/registrySlice'
@@ -54,7 +55,9 @@ const User = () => {
           errors={errors}
           placeholder="•••••••••"
         />
-        <button type="submit">Submit</button>
+        <ButtonGroup>
+          <Button type="submit">Submit</Button>
+        </ButtonGroup>
       </form>
     </div>
   )

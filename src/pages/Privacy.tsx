@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { privacySchema, PrivacyType } from '../validation/index'
 import { InputCheckbox } from '../components/Inputs'
+import { Button, ButtonGroup } from '../components/Button'
 import routes from '../routes'
 import { RootState } from '../redux/store'
 import { setPrivacyData } from '../redux/privacySlice'
@@ -34,7 +35,12 @@ const Privacy = () => {
           Receive communication by email for other products created by the
           Tray.io team
         </InputCheckbox>
-        <button type="submit">Submit</button>
+        <ButtonGroup>
+          <Button type="submit">Submit</Button>
+          <Button type="button" back onClick={() => history.push(routes.user)}>
+            Back
+          </Button>
+        </ButtonGroup>
       </form>
     </div>
   )
