@@ -14,13 +14,12 @@ const NavContainer = styled.nav`
 const NavItem = styled.span`
   ${({ isactive }: { isactive: string }) => css`
     flex: 1 1 auto;
-    text-decoration: none;
+    text-transform: uppercase;
     text-align: center;
-    padding: 15px 25px;
+    padding: 15px 5px;
     border-radius: 5px;
     font-weight: ${isactive === 'true' ? 'bold' : 'regular'};
     background-color: ${isactive === 'true' ? 'lightgray' : 'transparent'};
-    text-decoration: ${isactive === 'true' ? 'underline' : 'none'};
     &:visited {
       color: inherit;
     }
