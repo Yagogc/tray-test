@@ -12,12 +12,13 @@ import { setRegistryData } from '../redux/registrySlice'
 const User = () => {
   const dispatch = useDispatch()
   const registryState = useSelector((state: RootState) => state.registrySlice)
-  // console.log('User -> state', state)
   const history = useHistory()
-  const { register, handleSubmit, errors } = useForm<UserType>({
+  const { register, handleSubmit, errors, formState } = useForm<UserType>({
+    mode: 'onChange',
     defaultValues: { ...registryState },
     validationSchema: userSchema,
   })
+  console.log('User -> formState.isValid', formState.isValid)
   const onSubmit = handleSubmit((data) => {
     console.log(data)
     dispatch(setRegistryData(data))
@@ -56,7 +57,9 @@ const User = () => {
           placeholder="•••••••••"
         />
         <ButtonGroup>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" disabled={!formState.isValid}>
+            Submit
+          </Button>
         </ButtonGroup>
       </form>
     </div>

@@ -10,7 +10,7 @@ const ButtonGroup = styled.div`
 `
 
 const ButtonContainer = styled.button`
-  ${({ back }: { back: boolean }) => css`
+  ${({ back, disabled }: { back: boolean; disabled: boolean }) => css`
     padding: 5px 10px;
     background-color: ${back ? 'lightgrey' : 'green'};
     font-size: 20px;
@@ -18,8 +18,9 @@ const ButtonContainer = styled.button`
     border: 0;
     box-shadow: none;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: ${disabled ? 'not-allowed' : 'pointer'};
     transition: all 0.2s ease-in-out;
+    opacity: ${disabled ? '0.5' : '1'};
 
     &:hover {
       transform: scale(0.9);
