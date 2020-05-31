@@ -22,7 +22,7 @@ const User = () => {
     history.push(routes.privacy)
   })
   return (
-    <>
+    <div data-testid="user-page">
       <form onSubmit={onSubmit}>
         <InputText
           type="text"
@@ -56,7 +56,7 @@ const User = () => {
           <Button type="submit">Submit</Button>
         </ButtonGroup>
       </form>
-    </>
+    </div>
   )
 }
 

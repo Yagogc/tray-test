@@ -38,7 +38,7 @@ const InputText: React.FC<InputTextProps> = ({
         placeholder={placeholder}
         isError={!!errors[name]}
       />
-      <InputErrorMessage>
+      <InputErrorMessage data-testid={`${name}-error`}>
         {errors[name]?.message && (
           <>
             <>{errors[name]?.message}</>

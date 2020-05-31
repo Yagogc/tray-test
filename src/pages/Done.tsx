@@ -22,13 +22,13 @@ const Done = () => {
     dispatch(resetRegistryData())
   }, [])
   return (
-    <>
+    <div data-testid="done-page">
       <SuccessMessage big>✓</SuccessMessage>
       <SuccessMessage>
         Please verify your email address, you should have received an email from
         us already!
       </SuccessMessage>
-    </>
+    </div>
   )
 }
 

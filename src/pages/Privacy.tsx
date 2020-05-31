@@ -50,7 +50,7 @@ const Privacy = () => {
   })
 
   return (
-    <>
+    <div data-testid="privacy-page">
       <form onSubmit={onSubmit}>
         <InputCheckbox name="update" register={register}>
           Receive updates about Tray.io product by email
@@ -60,7 +60,9 @@ const Privacy = () => {
           Tray.io team
         </InputCheckbox>
         {error && (
-          <ErrorMessage>Something happened! Please try again.</ErrorMessage>
+          <ErrorMessage data-testid="submit-error">
+            Something happened! Please try again.
+          </ErrorMessage>
         )}
         <ButtonGroup>
           <Button type="submit" disabled={isLoading}>
@@ -76,7 +78,7 @@ const Privacy = () => {
           </Button>
         </ButtonGroup>
       </form>
-    </>
+    </div>
   )
 }
 
