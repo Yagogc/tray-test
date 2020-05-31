@@ -1,6 +1,11 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-
+import {
+  InputTextContainer,
+  InputTextLabel,
+  InputTextInput,
+  InputErrorMessage,
+} from './Input.styles'
 interface InputProps {
   name: string
   register: ReturnType<typeof useForm>['register']
@@ -9,6 +14,7 @@ interface InputTextProps extends InputProps {
   type: string
   errors: ReturnType<typeof useForm>['errors']
   isRequired?: boolean
+  placeholder: string
 }
 
 const InputText: React.FC<InputTextProps> = ({
@@ -16,13 +22,27 @@ const InputText: React.FC<InputTextProps> = ({
   name,
   register,
   errors,
+  placeholder,
 }) => {
   return (
-    <div>
-      <label htmlFor={name}>{name}</label>
-      <input type={type} name={name} ref={register} tabIndex={0} />
-      <p>{errors[name]?.message}</p>
-    </div>
+    <InputTextContainer>
+      <InputTextLabel htmlFor={name}>{name}</InputTextLabel>
+      <InputTextInput
+        type={type}
+        name={name}
+        ref={register}
+        tabIndex={0}
+        placeholder={placeholder}
+        isError={!!errors[name]}
+      />
+      <InputErrorMessage>
+        {errors[name]?.message && (
+          <>
+            <>{errors[name]?.message}</>
+          </>
+        )}
+      </InputErrorMessage>
+    </InputTextContainer>
   )
 }
 
