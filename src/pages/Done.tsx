@@ -20,7 +20,7 @@ const Done = () => {
     dispatch(setSuccessData({ submitted: false }))
     dispatch(resetPrivacyData())
     dispatch(resetRegistryData())
-  }, [])
+  }, []) // eslint-disable-line
   return (
     <div data-testid="done-page">
       <SuccessMessage big>✓</SuccessMessage>

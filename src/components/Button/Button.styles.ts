@@ -10,7 +10,7 @@ const ButtonGroup = styled.div`
 `
 
 const ButtonContainer = styled.button`
-  ${({ back, disabled }: { back: boolean; disabled: boolean }) => css`
+  ${({ back, disabled }: { back?: boolean; disabled?: boolean }) => css`
     padding: 5px 10px;
     background-color: ${back ? 'lightgrey' : 'green'};
     font-size: 20px;
