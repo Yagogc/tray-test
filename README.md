@@ -1,44 +1,101 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TRAY TEST
 
-## Available Scripts
+Live: tray.yago.pw
 
-In the project directory, you can run:
+## Getting Started
 
-### `yarn start`
+### Prerequisites
 
-Runs the app in the development mode.<br />
+Have installed `nvm` and `yarn`
+
+**Important: When running the project don't use a incognito browser or with extensions that may block service workers.
+The projects has been created with a service worker that fake an API endpoint so there's no need for a server.**
+
+### Set up local enviroment
+
+- Run `nvm use` to use the node version\* which this projects uses (defined in `.nvmrc`).
+- Run `yarn` to install all the necesary dependencies.
+
+\* Based on the node version that you have already installed you may skip this step
+
+### Quick start
+
+To quickly check the app functionality, after the yarn installation, run `yarn e2e:open:prod`.
+
+This will open a Cypress and run the tests covering some of the functionality of the website against the live app at tray.yago.pw
+Cypress have a time machine, so it's poosible to go back into the different steps covered by the tests.
+
+Note: Remember not to use a browser in Incongnito.
+
+### Available Scripts
+
+#### `yarn start`
+
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### `yarn test`
 
-### `yarn test`
+Launches the test runner in the interactive watch mode.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `yarn build`
 
-### `yarn build`
+Builds the app for production to the `build` folder.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### `yarn e2e:run`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Runs the E2E tests w/ Cypress in headless mode.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### `yarn e2e:open`
 
-### `yarn eject`
+Runs the E2E tests w/ Cypress in 'non-headless' mode .
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### `yarn e2e:run:prod`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Runs the E2E tests w/ Cypress in headless mode against the production website: tray.yago.pw
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### `yarn e2e:open:prod`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Runs the E2E tests w/ Cypress in 'non-headless' mode against the production website: tray.yago.pw
 
-## Learn More
+## Notes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A few notes from myself regarding a few things
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### React
+
+This app has been created with `create react app`, for a quicker start. Personally this days I personally prefer to use or either Gatsby or Next.
+
+### Testing
+
+For this test to be time bounded, I just created a few unit test and functional test, a lot of things hasn't been tested for this test. The libraries I have used are:
+
+- @testing-libary/react: for react components tests
+- Cypress: for functional tests
+- jest-styled-components: for styled components tests
+
+Also for static testing, I have automated w/ husky the running of ESLint and Prettier on every pre-commit.
+
+### Styling
+
+I have mostly used Styled-Components for the project. I have a `scss` file mostly to make the point I can use it too if necessary.
+
+### State management
+
+Client State: Given the size of this project I might have choosen to use the Context API of React, but as requested, I used Redux (w/ Redux Toolkit).
+
+Server State: Even that the project is too small to make it worth it, I have use `react-query` to leverage any server state with their side effects, loading states, etc...
+
+### Forms
+
+I have used `react-hook-form` because of the simple API and performance compared to other libs.
+
+### Scaffolding
+
+Big topic this one which I would like to discuss in a conversation. Just to said that I used a `/folder/index` structure in this project just because it's the one I'm used to do, but personally I'm not completly sold on it.
+
+### API
+
+I have mocked an API endpoint to `POST` the form data with the library `msw`. Because of it, I can replicate an error flow on demand.
+
+---
