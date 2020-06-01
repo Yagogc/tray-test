@@ -1,6 +1,6 @@
 # TRAY TEST
 
-Live: tray.yago.pw
+Live app: [tray.yago.pw](tray.yago.pw)
 
 ## Getting Started
 
@@ -22,14 +22,14 @@ The projects has been created with a service worker that fake an API endpoint so
 
 To quickly check the app functionality, after the yarn installation, run `yarn e2e:open:prod`.
 
-This will open a Cypress and run the tests covering some of the functionality of the website against the live app at tray.yago.pw
+This will open a Cypress and run the tests covering some of the functionality of the website against the live app at [tray.yago.pw](tray.yago.pw)
 Cypress has a time machine, so it's poosible to go back into the different steps covered by the tests.
 
 Note: Remember not to use a browser in Incongnito.
 
 ### Instructions
 
-When using the application, on the second page of the registry, if you select the second checkbox option the form submission will fail on demand. While that checkbox is uncheck, any other combination will submit successfully.
+When using the application, on the second page of the registry, if you select the second checkbox option the form submission will fail on demand. While that checkbox is uncheck, any other combination will submit successfully. This has done to be able to try on demand a failed submission.
 
 ### Available Scripts
 
@@ -56,11 +56,11 @@ Runs the E2E tests w/ Cypress in 'non-headless' mode .
 
 #### `yarn e2e:run:prod`
 
-Runs the E2E tests w/ Cypress in headless mode against the production website: tray.yago.pw
+Runs the E2E tests w/ Cypress in headless mode against the live website: [tray.yago.pw](tray.yago.pw)
 
 #### `yarn e2e:open:prod`
 
-Runs the E2E tests w/ Cypress in 'non-headless' mode against the production website: tray.yago.pw
+Runs the E2E tests w/ Cypress in 'non-headless' mode against the live website: [tray.yago.pw](tray.yago.pw)
 
 ## Notes
 
