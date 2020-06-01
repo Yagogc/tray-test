@@ -23,9 +23,13 @@ The projects has been created with a service worker that fake an API endpoint so
 To quickly check the app functionality, after the yarn installation, run `yarn e2e:open:prod`.
 
 This will open a Cypress and run the tests covering some of the functionality of the website against the live app at tray.yago.pw
-Cypress have a time machine, so it's poosible to go back into the different steps covered by the tests.
+Cypress has a time machine, so it's poosible to go back into the different steps covered by the tests.
 
 Note: Remember not to use a browser in Incongnito.
+
+### Instructions
+
+When using the application, on the second page of the registry, if you select the second checkbox option the form submission will fail on demand. While that checkbox is uncheck, any other combination will submit successfully.
 
 ### Available Scripts
 
@@ -64,7 +68,7 @@ A few notes from myself regarding a few things
 
 ### React
 
-This app has been created with `create react app`, for a quicker start. Personally this days I personally prefer to use or either Gatsby or Next.
+This app has been created with `create react app`, for a quicker start. Personally this days I prefer to use or either Gatsby or Next.
 
 ### Testing
 
