@@ -29,7 +29,7 @@ Note: Remember not to use a browser in Incongnito.
 
 ### Instructions
 
-When using the application, on the second page of the registry, if you select the second checkbox option the form submission will fail on demand. While that checkbox is uncheck, any other combination will submit successfully. This has done to be able to try on demand a failed submission.
+When using the application, on the second page of the registry, if you select the second checkbox option the form submission will fail on demand. While that checkbox is uncheck, any other combination will submit successfully. This has been done to be able to try on demand a failed submission.
 
 ### Available Scripts
 
@@ -96,7 +96,7 @@ I have used `react-hook-form` because of the simple API and performance compared
 
 ### Scaffolding
 
-Big topic this one which I would like to discuss in a conversation. Just to said that I used a `/folder/index` structure in this project just because it's the one I'm used to do, but personally I'm not completly sold on it.
+This one is a big topic, with no right or wrong approaches. In this case I used a `/folder/index` structure in this project because it's the one I'm used to do, but personally I'm not completly sold on it.
 
 ### API
 
