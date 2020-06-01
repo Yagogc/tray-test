@@ -8,8 +8,13 @@ const InputTextContainer = styled.div`
 `
 
 const InputTextLabel = styled.label`
-  ${() => css`
+  ${({ isRequired }: { isRequired?: boolean }) => css`
     text-transform: uppercase;
+    &:after {
+      display: ${isRequired ? 'inline-block' : 'none'};
+      content: '*';
+      color: red;
+    }
   `}
 `
 

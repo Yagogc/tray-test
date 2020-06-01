@@ -25,10 +25,13 @@ const InputText: React.FC<InputTextProps> = ({
   register,
   errors,
   placeholder,
+  isRequired = false,
 }) => {
   return (
     <InputTextContainer>
-      <InputTextLabel htmlFor={name}>{name}</InputTextLabel>
+      <InputTextLabel htmlFor={name} isRequired={isRequired}>
+        {name}
+      </InputTextLabel>
       <InputTextInput
         type={type}
         name={name}

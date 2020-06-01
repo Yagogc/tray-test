@@ -30,6 +30,7 @@ const User = () => {
           register={register}
           errors={errors}
           placeholder="e.g: John Doe"
+          isRequired
         />
         <InputText
           type="role"
@@ -44,6 +45,7 @@ const User = () => {
           register={register}
           errors={errors}
           placeholder="e.g: john.doe@test.com"
+          isRequired
         />
         <InputText
           type="password"
@@ -51,6 +53,7 @@ const User = () => {
           register={register}
           errors={errors}
           placeholder="•••••••••"
+          isRequired
         />
         <ButtonGroup>
           <Button type="submit">Submit</Button>
