@@ -1,6 +1,6 @@
 # TRAY TEST
 
-Live app: [tray.yago.pw](tray.yago.pw)
+Live app: [tray.yago.pw](https://tray.yago.pw)
 
 ## Getting Started
 
