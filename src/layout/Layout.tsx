@@ -5,7 +5,7 @@ import { LayoutContainer, Logo } from './Layout.styles'
 const User: React.FC = ({ children }) => {
   return (
     <>
-      <Logo>tray.io</Logo>
+      <Logo>form.io</Logo>
       <Nav />
       <LayoutContainer>{children}</LayoutContainer>
     </>

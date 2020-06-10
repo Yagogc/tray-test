@@ -1,5 +1,5 @@
 {
-  "name": "tray-test",
+  "name": "form-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "test:watch": "react-scripts test --watch",
     "e2e:run": "cypress run",
     "e2e:open": "cypress open",
-    "e2e:run:prod": "CYPRESS_BASE_URL=https://tray.yago.pw cypress run",
-    "e2e:open:prod": "CYPRESS_BASE_URL=https://tray.yago.pw cypress open",
+    "e2e:run:prod": "CYPRESS_BASE_URL=https://form.yago.pw cypress run",
+    "e2e:open:prod": "CYPRESS_BASE_URL=https://form.yago.pw cypress open",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "format": "prettier src/**/*.{ts,tsx,scss,css,json}"
   },

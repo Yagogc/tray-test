@@ -1,4 +1,4 @@
-context('Tray test', () => {
+context('Form test', () => {
   beforeEach(() => {
     cy.visit('/')
   })
